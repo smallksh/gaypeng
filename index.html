@@ -1,33 +1,536 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>少鹏是gay，少gay是鹏</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>⚠️ 超进化·GAY鹏领域 ⚠️</title>
     <style>
-        * { margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; 
+        }
+
         body {
-            background: #000;
+            background: radial-gradient(circle at center, #0a0f1e, #000000);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            font-family: 'Courier New', 'Microsoft YaHei', monospace;
             overflow: hidden;
+            position: relative;
+            cursor: crosshair;
         }
-        img {
-            max-width: 100vw;
-            max-height: 100vh;
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 255, 0.03) 0px,
+                rgba(255, 0, 255, 0.03) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            pointer-events: none;
+            z-index: 10;
+            animation: glitchScan 4s linear infinite;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-radial-gradient(circle at 20% 30%, rgba(0,0,0,0) 0px, rgba(255,0,128,0.08) 1px, transparent 2px);
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.6;
+            mix-blend-mode: overlay;
+        }
+
+
+        .gay-peng-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+
+        .peng-picture {
+            max-width: 90vw;
+            max-height: 90vh;
             object-fit: contain;
+            border-radius: 32px;
+            box-shadow: 0 0 0 4px rgba(255, 20, 147, 0.6),
+                        0 0 0 8px rgba(0, 255, 255, 0.3),
+                        0 0 40px rgba(255, 0, 255, 0.8),
+                        0 0 120px rgba(255, 0, 100, 0.5);
+            transition: all 0.2s ease;
+            animation: borderPulse 1.2s infinite alternate, subtleShake 3s infinite;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27"><polygon points="2,2 22,13 12,25 2,13" fill="%23ff66cc" stroke="%23ff00aa" stroke-width="1.5"/><circle cx="12" cy="13" r="3" fill="white"/></svg>') 12 5, auto;
+        }
+
+
+        @keyframes borderPulse {
+            0% {
+                box-shadow: 0 0 0 2px rgba(255, 20, 147, 0.8),
+                            0 0 0 6px rgba(0, 255, 255, 0.4),
+                            0 0 30px rgba(255, 0, 200, 0.6);
+                filter: drop-shadow(0 0 8px hotpink);
+            }
+            100% {
+                box-shadow: 0 0 0 6px rgba(255, 80, 180, 1),
+                            0 0 0 12px rgba(0, 200, 255, 0.7),
+                            0 0 60px rgba(255, 0, 255, 1);
+                filter: drop-shadow(0 0 18px magenta);
+            }
+        }
+
+
+        @keyframes subtleShake {
+            0% { transform: translate(0px, 0px) rotate(0deg); }
+            15% { transform: translate(1px, -1px) rotate(0.2deg); }
+            30% { transform: translate(-1px, 2px) rotate(-0.3deg); }
+            45% { transform: translate(2px, 1px) rotate(0.1deg); }
+            60% { transform: translate(-1px, -1px) rotate(-0.2deg); }
+            75% { transform: translate(1px, 0px) rotate(0.3deg); }
+            90% { transform: translate(0px, 1px) rotate(-0.1deg); }
+            100% { transform: translate(0, 0) rotate(0); }
+        }
+
+
+        .floating-text {
+            position: fixed;
+            font-weight: bold;
+            font-size: 1.6rem;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 20;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            text-shadow: 0 0 5px magenta, 0 0 12px cyan;
+            animation: floatAround 12s linear infinite, rainbowColor 0.4s infinite;
+            opacity: 0.85;
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translateX(-10%) translateY(20vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateX(110vw) translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rainbowColor {
+            0% { color: #ff66cc; text-shadow: 0 0 5px red; }
+            25% { color: #ffaa44; text-shadow: 0 0 8px orange; }
+            50% { color: #88ff88; text-shadow: 0 0 12px lime; }
+            75% { color: #66ffff; text-shadow: 0 0 15px cyan; }
+            100% { color: #ff66ff; text-shadow: 0 0 10px magenta; }
+        }
+
+        .gay-meter {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 60px;
+            border-left: 4px solid hotpink;
+            border-right: 2px solid cyan;
+            font-family: monospace;
+            font-weight: bold;
+            color: #ff66cc;
+            text-shadow: 0 0 3px magenta;
+            font-size: 1.2rem;
+            z-index: 30;
+            letter-spacing: 1px;
+            animation: meterPulse 0.9s infinite alternate;
+            cursor: pointer;
+        }
+
+        @keyframes meterPulse {
+            from { text-shadow: 0 0 2px hotpink; border-left-color: #ff66cc;}
+            to { text-shadow: 0 0 12px magenta; border-left-color: cyan;}
+        }
+
+
+        .prank-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(45deg, #ff2d7f, #ff00aa);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: 0 0 12px rgba(255, 0, 170, 0.8);
+            transition: 0.2s;
+            z-index: 30;
+            animation: wobble 1s infinite;
+            letter-spacing: 2px;
+        }
+
+        .prank-button:hover {
+            transform: scale(1.08);
+            background: linear-gradient(45deg, #ff00aa, #ff66cc);
+            box-shadow: 0 0 25px fuchsia;
+        }
+
+        @keyframes wobble {
+            0%,100% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
+        }
+
+        .rainbow-trail {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff00cc, #ff4444);
+            pointer-events: none;
+            z-index: 9999;
+            filter: blur(2px);
+            opacity: 0.8;
+            transition: transform 0.05s;
+            box-shadow: 0 0 8px cyan;
+        }
+
+
+        .glitch-warning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.75);
+            color: #ff44ee;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 6px;
+            font-weight: bold;
+            z-index: 40;
+            backdrop-filter: blur(4px);
+            letter-spacing: 3px;
+            animation: glitchBar 0.3s infinite;
+            font-family: monospace;
+        }
+
+        @keyframes glitchBar {
+            0% { opacity: 0.8; text-shadow: -2px 0 red; background: #110011;}
+            50% { opacity: 1; text-shadow: 2px 0 cyan; background: #220022;}
+            100% { opacity: 0.8; text-shadow: -1px 0 magenta; background: #110011;}
+        }
+
+
+        @media (max-width: 600px) {
+            .floating-text { font-size: 1rem; }
+            .gay-meter { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <img src="peng.jpg">
-    <script>
 
-        alert("你被gay鹏盯上了！");
-        setTimeout(() => alert("小心！gay鹏正在看你！"), 1000);
-        setTimeout(() => alert("别跑！gay鹏喜欢你！"), 2000);
+<div class="glitch-warning" id="glitchBanner">⚠️ 警告：前方GAY鹏高能反应 ⚠️ 你已被锁定 ⚠️</div>
 
-        document.oncontextmenu = () => false;
-    </script>
+<div class="gay-peng-container">
+
+    <img class="peng-picture" src="peng.jpg" alt="🦄✨ GAY鹏降临 ✨🌈" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20400%22%3E%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23111144%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff66cc%22%20font-size%3D%2230%22%20font-weight%3D%22bold%22%3E🌈%20GAY%20鹏%20%E6%B2%A1%E6%9C%89%E7%85%A7%E7%89%87%20%F0%9F%92%96%3C%2Ftext%3E%3C%2Fsvg%3E';">
+</div>
+
+
+<div id="floatArea"></div>
+
+
+<div class="gay-meter" id="gayMeter">🌈 GAY值监测中: 🔥██░░░ 34% 🔥</div>
+
+
+<button class="prank-button" id="surpriseBtn">💖 点击领取GAY鹏の凝视 💖</button>
+
+<script>
+    (function() {
+
+        let alertStep = 0;
+        const alertMessages = [
+            "⚠️ 嘿嘿嘿～ 你被GAY鹏锁定啦！⚠️\n\n👉 GAY鹏の凝视：无处可逃！👈",
+            "🌈 小心！GAY鹏正在从屏幕里偷看你！ 🌈\n\n👀 他的眼神充满爱（恶）意！ 👀",
+            "💘 别想跑！GAY鹏已经宣布你是他的特别关注！ 💘\n✨ 恭喜你，获得永久『GAY鹏の宠幸』称号 ✨",
+            "🔥🔥 警告！！GAY鹏浓度爆表 🔥🔥\n📢 即将发动『彩虹锁头』精神攻击！ 📢"
+        ];
+        
+        function showNextAlert(index) {
+            if(index >= alertMessages.length) return;
+            setTimeout(() => {
+                alert(alertMessages[index]);
+                showNextAlert(index+1);
+            }, index === 0 ? 300 : 1800);
+        }
+
+        showNextAlert(0);
+
+        setInterval(() => {
+            const extraMsgs = [
+                "💋 GAY鹏悄悄说：你今天的穿搭很可～ 💋",
+                "🏳️‍🌈 GAY鹏の低语：为什么不敢看我？是不是心动了？ 🏳️‍🌈",
+                "🐧 GAY鹏其实是彩虹小天使，你已经逃不掉啦！ 🐧",
+                "✨ 悄咪咪告诉你～ gay鹏此时正在屏幕后面微笑 ✨"
+            ];
+            const randMsg = extraMsgs[Math.floor(Math.random() * extraMsgs.length)];
+            alert(randMsg);
+        }, 13000);
+        
+
+        document.oncontextmenu = (e) => {
+            e.preventDefault();
+
+            alert("🖱️ 嘻嘻，右键禁止！因为GAY鹏说：你的鼠标属于我～ 🖱️");
+            return false;
+        };
+        
+
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J'))) {
+                e.preventDefault();
+                alert("🔒 想开开发者工具？GAY鹏已开启反侦查模式！ 🔒\n👾 '放弃抵抗吧，乖乖看我' 👾");
+            }
+
+            if(e.key === 'g' || e.key === 'G') {
+                e.preventDefault();
+                alert("🌈🌈 你按下了『GAY』之力！GAY鹏感到幸福并释放彩虹屁 🌈🌈\n🎉 送你满屏彩虹气泡！ 🎉");
+                createRainbowBlast();
+            }
+        });
+        
+
+        function createRainbowBlast() {
+            for(let i=0;i<45;i++) {
+                let bubble = document.createElement('div');
+                bubble.innerText = ['🌈','💖','✨','💘','🦄','🔥','⭐','🎉','💚','🧡'][Math.floor(Math.random()*10)];
+                bubble.style.position = 'fixed';
+                bubble.style.fontSize = (20 + Math.random()*40) + 'px';
+                bubble.style.left = Math.random() * window.innerWidth + 'px';
+                bubble.style.top = window.innerHeight + 'px';
+                bubble.style.pointerEvents = 'none';
+                bubble.style.zIndex = '99999';
+                bubble.style.opacity = '0.9';
+                bubble.style.transition = 'all 3s ease-out';
+                bubble.style.fontWeight = 'bold';
+                document.body.appendChild(bubble);
+                requestAnimationFrame(() => {
+                    bubble.style.transform = `translateY(-${window.innerHeight + 100}px) rotate(${Math.random()*360}deg)`;
+                    bubble.style.opacity = '0';
+                });
+                setTimeout(() => bubble.remove(), 3000);
+            }
+        }
+        
+
+        let gayPercent = 34;
+        const gayMeterEl = document.getElementById('gayMeter');
+        function updateGayMeter() {
+            let fillCount = Math.floor(gayPercent / 4);
+            let bar = '█'.repeat(Math.min(fillCount, 25)) + '░'.repeat(Math.max(0, 25 - fillCount));
+            let extraMsg = '';
+            if(gayPercent >= 80) extraMsg = ' ⚠️ 失控边缘！GAY鹏心大悦 ⚠️';
+            else if(gayPercent >= 60) extraMsg = ' 💘 浓度过高！无法直视 💘';
+            else if(gayPercent >= 40) extraMsg = ' 🎀 开始被GAY鹏吸引 🎀';
+            else extraMsg = ' 👀 GAY鹏正在观察 👀';
+            gayMeterEl.innerHTML = `🌈 GAY值监测: 🔥${bar} ${gayPercent}% 🔥${extraMsg}`;
+            if(gayPercent >= 100) {
+                gayMeterEl.style.animation = 'none';
+                gayMeterEl.style.background = 'radial-gradient(circle, #ff00aa, black)';
+                gayMeterEl.innerHTML = '💯💯💯 GAY值 MAX！！ GAY鹏已经爱上你了 💯💯💯 无法逃脱 💖';
+
+                document.body.style.animation = 'subtleShake 0.2s infinite';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 2000);
+                createRainbowBlast();
+                alert("🎉🎉🎉 恭喜！GAY值达到100%！GAY鹏宣布你为终身伴侣！🎉🎉🎉");
+            }
+        }
+        
+
+        setInterval(() => {
+            if(gayPercent < 99) {
+                gayPercent = Math.min(gayPercent + (Math.random() * 3), 99);
+                updateGayMeter();
+            } else if(gayPercent < 100 && Math.random() > 0.7) {
+                gayPercent = 100;
+                updateGayMeter();
+            }
+        }, 5000);
+        
+        const pengImg = document.querySelector('.peng-picture');
+        let clickCount = 0;
+        pengImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clickCount++;
+            gayPercent = Math.min(gayPercent + 2 + Math.floor(Math.random()*4), 100);
+            updateGayMeter();
+            const taunts = [
+                "😝 你戳GAY鹏干嘛！他更爱你了！ 😝",
+                "💢 大胆！竟敢触碰GAY鹏の玉体！GAY值暴涨！ 💢",
+                "🌈 GAY鹏邪魅一笑：你喜欢我就直说～ 🌈",
+                "🦄 再摸一下！gay鹏即将释放彩虹魅惑！ 🦄"
+            ];
+            if(clickCount % 2 === 0 || Math.random() > 0.6) {
+                alert(taunts[Math.floor(Math.random()*taunts.length)]);
+            }
+
+            spawnFloatingText("👆 GAY鹏：你摸我!! 更爱了 👆", e.clientX, e.clientY);
+        });
+        
+
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        surpriseBtn.addEventListener('click', () => {
+            gayPercent = Math.min(gayPercent + 8, 100);
+            updateGayMeter();
+            alert("💖 呀！你按下了GAY鹏の心动开关！💖\n✨ 满屏彩虹爱心出击！✨");
+            createRainbowBlast();
+
+            for(let i=0;i<5;i++) {
+                setTimeout(() => {
+                    pengImg.style.transform = 'scale(1.02) rotate(2deg)';
+                    setTimeout(() => pengImg.style.transform = '', 100);
+                }, i*80);
+            }
+
+            for(let s=0;s<12;s++) {
+                setTimeout(() => {
+                    spawnFloatingText("😍 GAY鹏の示爱 😍", Math.random()*window.innerWidth, Math.random()*window.innerHeight);
+                }, s*200);
+            }
+        });
+
+        function spawnFloatingText(msg, x, y) {
+            const div = document.createElement('div');
+            div.className = 'floating-text';
+            div.innerText = msg;
+            div.style.left = (x - 50) + 'px';
+            div.style.top = (y - 20) + 'px';
+            div.style.position = 'fixed';
+            div.style.fontSize = '1.1rem';
+            div.style.whiteSpace = 'nowrap';
+            div.style.background = 'rgba(0,0,0,0.5)';
+            div.style.padding = '4px 12px';
+            div.style.borderRadius = '40px';
+            div.style.backdropFilter = 'blur(6px)';
+            div.style.border = '1px solid hotpink';
+            div.style.fontWeight = 'bold';
+            div.style.animation = 'floatAround 5s linear forwards, rainbowColor 0.3s infinite';
+            div.style.pointerEvents = 'none';
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 5000);
+        }
+        
+
+        setInterval(() => {
+            const lowTalk = [
+                "🌹 GAY鹏：我的眼里只有你 🌹",
+                "👁️ GAY鹏正在用目光扫射你 👁️",
+                "💃 GAY鹏扭动着彩虹舞步向你走来 💃",
+                "🎤 GAY鹏の歌: 你是我的小呀小gay鹏～ 🎤",
+                "👅 略略略～ 你逃不掉的",
+                "🔞 gay鹏の领域，进来就别想出去"
+            ];
+            const randomMsg = lowTalk[Math.floor(Math.random() * lowTalk.length)];
+            const randX = Math.random() * (window.innerWidth - 200) + 100;
+            const randY = Math.random() * (window.innerHeight - 100) + 50;
+            spawnFloatingText(randomMsg, randX, randY);
+        }, 3800);
+        
+
+        let trailActive = false;
+        let trailNodes = [];
+        const MAX_TRAIL = 12;
+        document.addEventListener('mousemove', (e) => {
+            if(!trailActive) {
+                trailActive = true;
+                setTimeout(() => { trailActive = false; }, 50);
+            }
+            const trail = document.createElement('div');
+            trail.classList.add('rainbow-trail');
+            trail.style.left = (e.clientX - 7) + 'px';
+            trail.style.top = (e.clientY - 7) + 'px';
+            document.body.appendChild(trail);
+            trailNodes.push(trail);
+            if(trailNodes.length > MAX_TRAIL) {
+                const removeNode = trailNodes.shift();
+                if(removeNode && removeNode.remove) removeNode.remove();
+            }
+            setTimeout(() => {
+                if(trail && trail.remove) trail.remove();
+                const idx = trailNodes.indexOf(trail);
+                if(idx !== -1) trailNodes.splice(idx,1);
+            }, 400);
+        });
+        
+
+        const glitchBanner = document.getElementById('glitchBanner');
+        const bannerMessages = [
+            "⚠️ 警告：GAY鹏正在凝视你的灵魂 ⚠️",
+            "🌈 彩虹防御塔 · GAY鹏锁定技 🌈",
+            "💘 别刷新了，GAY鹏已经住进你心里 💘",
+            "🔥 基情燃烧的岁月 🔥 GAY鹏专版",
+            "🦄 Gay鹏超进化形态——彩虹独角兽 🦄",
+            "👀GAY 鹏の右下角按钮别乱点！会怀孕👀"
+        ];
+        setInterval(() => {
+            let idx = Math.floor(Math.random() * bannerMessages.length);
+            glitchBanner.innerText = bannerMessages[idx];
+        }, 2800);
+        
+        let shakeInterval = setInterval(() => {
+            if(Math.random() > 0.85 && gayPercent > 40) {
+                document.body.style.transform = 'translate(2px, -1px)';
+                setTimeout(() => { document.body.style.transform = ''; }, 80);
+            }
+        }, 3000);
+        
+
+        setTimeout(() => {
+            for(let i=0;i<6;i++) {
+                setTimeout(() => {
+                    const greet = ["🐧 GAY鹏の凝视已经上线 🐧", "💖 GAY鹏爱你哟 💖", "🌈 彩虹GAY力场启动 🌈"];
+                    let rx = Math.random() * window.innerWidth;
+                    let ry = Math.random() * window.innerHeight;
+                    spawnFloatingText(greet[i%greet.length], rx, ry);
+                }, i*500);
+            }
+        }, 800);
+        
+        console.log("%c⚠️ 终极GAY鹏已加载！你逃不掉了⚠️", "color: hotpink; font-size: 18px; font-weight: bold;");
+
+        window.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+    })();
+</script>
 </body>
 </html>
